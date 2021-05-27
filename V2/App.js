@@ -66,16 +66,7 @@ app.get("/",function(req,res){
 
 });
 
-app.post("/",function(req,res){
-    const  itemName = req.body.newItem;
-    const item = new Item({
-        task : itemName
-    })
-    item.save();
-    res.redirect("/");
-   // console.log(item);
- 
-})
+
 
 
 app.get("/work",function(req,res){
@@ -106,6 +97,18 @@ List.find({name:customListName},function(err,foundlist){
     
 
 });
+app.post("/",function(req,res){
+    const  itemName = req.body.newItem;
+    const item = new Item({
+        task : itemName
+    })
+
+
+    item.save();
+    res.redirect("/");
+   // console.log(item);
+ 
+})
 
 app.post("/work",function(req,res){
     let item = req.body.newItem;
